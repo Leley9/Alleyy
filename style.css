@@ -1,0 +1,351 @@
+*:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Appliquer la police "Courier New" à toute la page */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Courier New', monospace; /* Appliquer la police à toute la page */
+}
+
+
+
+/* Donner une hauteur à la carte */
+#map {
+  width: 100%;
+  height: 500px; /* Ajuste cette hauteur selon ton besoin */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* La carte prend toute la largeur et la hauteur de la fenêtre */
+html, body {
+  height: 100%; /* S'assure que le corps et la page occupent toute la hauteur de la fenêtre */
+  margin: 0;    /* Supprime les marges par défaut */
+}
+
+#map {
+  width: 100%;   /* Prend toute la largeur */
+  height: 100%;  /* Prend toute la hauteur */
+}
+
+
+
+/* Style du bouton */
+#addMarkerBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style pour l'icône SVG */
+#addMarkerBtn svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* Fenêtre modale (popup) */
+.modal {
+  display: none; /* Masqué par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin: 0 0 20px; /* Ajoute un espace en bas */
+  font-size: 1.5rem; /* Ajuste la taille de la police */
+  font-weight: bold; /* Rend le texte en gras */
+}
+
+
+.modal-content {
+  background-color: rgb(192, 94, 148); /* Un blanc cassé pour réduire la luminosité */
+  padding: 20px;
+  border-radius: 10px; /* Ajoute un design arrondi */
+  width: 90%; /* Ajuste la largeur */
+  max-width: 400px; /* Largeur maximale */
+  display: flex;
+  flex-direction: column; /* Aligne les enfants verticalement */
+  gap: 10px; /* Espacement entre les éléments */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+
+.close-btn {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  float: right;
+}
+
+/* Style des champs de formulaire */
+form input, form textarea {
+  width: 100%; /* S'étend sur toute la largeur */
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #d0b6b6;
+  border-radius: 4px;
+  box-sizing: border-box; /* Empêche l'expansion */
+}
+
+form textarea {
+  resize: none; /* Désactive le redimensionnement */
+}
+
+form input, form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#category {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6B1C61;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #500a4c;
+}
+
+/* Style général de la popup - Marqueur */
+.popup-content {
+  background-color: #f1f1f1; /* Fond gris clair */
+  border: none; /* Pas de bordure visible */
+  border-radius: 15px; /* Coins arrondis prononcés */
+  padding: 20px; /* Espacement plus large */
+  width: 320px; /* Largeur fixe */
+  height: 190px; /* Hauteur fixe pour respecter un ratio 16:9 */
+  max-width: 80%; /* Limite la largeur sur petits écrans */
+  font-family: 'Roboto', sans-serif; /* Police moderne */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  color: #333; /* Couleur du texte */
+  transition: all 0.3s ease; /* Animation douce lors du survol ou de l’ouverture */
+  position: relative; /* Nécessaire pour positionner le bouton à l'intérieur de la popup */
+}
+
+/* Style du titre */
+.popup-content h3 {
+  font-size: 1.2rem; /* Taille plus petite pour le titre */
+  font-weight: bold;
+  color: #7335c9; /* Couleur violette élégante */
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+/* Style du texte */
+.popup-content p {
+  font-size: 1rem;
+  margin: 0 0 20px;
+  text-align: justify; /* Alignement justifié */
+  color: #666; /* Couleur plus claire pour le texte */
+}
+
+/* Bouton avec icône de corbeille positionné en bas à droite */
+.delete-marker {
+  background: none; /* Pas de fond */
+  border: none; /* Pas de bordure */
+  cursor: pointer;
+  position: absolute; /* Positionnement absolu par rapport à la popup */
+  bottom: 10px; /* Décalage du bas */
+  right: 10px; /* Décalage de la droite */
+  width: 40px; /* Taille plus petite pour la corbeille */
+  height: 40px;
+  transition: transform 0.3s, color 0.3s; /* Animation lors du survol */
+}
+
+.delete-marker svg {
+  color: #f7e01e; /* Couleur jaune vif pour l'icône */
+  width: 24px;
+  height: 24px;
+}
+
+/* Effet de survol pour la corbeille */
+.delete-marker:hover {
+  transform: scale(1.2); /* Agrandissement de l'icône */
+  color: #e74c3c; /* Changement de couleur en rouge vif */
+}
+
+
+/* Bouton pour categories
+
+/* Conteneur du bouton */
+#menuButtonContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+
+#menuButton {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  outline: none !important;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2) !important; /* Ombre normale */
+}
+
+#menuButton:hover {
+  background-color: #53104d !important; /* Couleur au survol */
+}
+
+#menuButton:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#menuButton:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Global reset pour focus */
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#dropdownMenu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Courier New', monospace; /* Applique la police Courier New */
+  min-width: 180px; /* Augmente la largeur minimale pour éviter les sauts de ligne */
+}
+
+#dropdownMenu.hidden {
+  display: none;
+}
+
+.dropdown-item {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Courier New', monospace; /* Assure que les items ont aussi la bonne police */
+}
+
+.dropdown-item:hover {
+  background-color: #f2f2f2;
+}
+
+
+@media (max-width: 480px) {
+  #topControls {
+    /* On laisse un peu de marge, mais symétrique pour les deux boutons */
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  /* On ajuste simplement la taille des icônes des deux boutons 
+     pour qu'elles soient identiques et cohérentes. */
+  #addMarkerBtn svg,
+  #menuButton svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Ne pas modifier le padding ou la taille de #menuButton lui-même, 
+     pour qu'il conserve son alignement naturel. */
+  #menuButton {
+    padding: 0; /* Pas de padding supplémentaire */
+  }
+
+  /* On enlève la min-width du menu et le reste des changements 
+     trop agressifs sur sa taille. Revenir à la version plus simple 
+     vous permet de retrouver l'alignement initial. */
+  #dropdownMenu {
+    gap: 5px;
+  }
+
+  .dropdown-item {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+
+  /* Le reste du code pour le modal et la popup */
+  .modal-content {
+    width: 90%;
+    max-width: 300px;
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .popup-content {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .popup-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .popup-content p {
+    font-size: 0.9rem;
+  }
+
+  .delete-marker {
+    width: 36px; 
+    height: 36px;
+    bottom: 8px; 
+    right: 8px;
+  }
+
+  .delete-marker svg {
+    width: 20px;
+    height: 20px;
+  }
+}
